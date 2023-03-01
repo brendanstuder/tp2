@@ -27,9 +27,14 @@ class Wallet(object):
         """Adds the specified amount of money to the current Wallet object"""
         self.balance += amount
 
-    def add_money(self, amount):
-        """Adds the specified amount of money to the current Wallet object"""
-        self.balance += amount
+    def spend_money(self, amount, deffered=False):
+        """Removes the specified amount of money from the current Wallet object"""
+        if self.balance - self.deferred_balance < amount:
+            raise InsufficientAmount(f"Not enough available to spend {amount}")
+        if deffered:
+            self.deferred_balance += amount
+        else:
+            self.balance -= amount
 
     def transfer(self, wallet, amount):
         """Transfers a certain amount from the current wallet object to another one"""

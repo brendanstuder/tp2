@@ -11,7 +11,7 @@ Ils permettent notamment de s'assurer que le code que vous pousser sur vos repos
 Un outil très connu et utilisé pour ça est SonarQube. 
 
 
-# TP2 - Création d'une pipeline Gitlab CI/CD avec qualité de code (SonarQube)$
+# TP2 - Création d'une pipeline Gitlab CI/CD avec qualité de code
 - Stage de tests relativement simple
 - Stage de qualité de code (SonarQube ou SonarCloud)
 - Utiliser le pré-commit (package python)
