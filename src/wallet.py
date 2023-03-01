@@ -1,7 +1,5 @@
 """Module that lets you manipulate a wallet"""
 
-SECRET_PASSWORD = "my super password"
-
 
 class InsufficientAmount(Exception):
     """Exception triggered when you try to spend more money than a wallet has"""
@@ -26,6 +24,10 @@ class Wallet(object):
             self.balance -= amount
 
     def add_cash(self, amount):
+        """Adds the specified amount of money to the current Wallet object"""
+        self.balance += amount
+
+    def add_money(self, amount):
         """Adds the specified amount of money to the current Wallet object"""
         self.balance += amount
 
