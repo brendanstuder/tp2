@@ -3,11 +3,10 @@ FROM python:3.9
 WORKDIR /code
 
 COPY ./setup.py /code/setup.py
-COPY ./pyproject.toml /code/pyproject.toml
 
 COPY ./src /code/src
 
-RUN pip install /code[serve]
+RUN pip install /code
 
 COPY ./controller /code/controller
 
