@@ -1,5 +1,7 @@
 """Module that lets you manipulate a wallet"""
 
+SECRET_PASSWORD = "my super password"
+
 
 class InsufficientAmount(Exception):
     """Exception triggered when you try to spend more money than a wallet has"""
