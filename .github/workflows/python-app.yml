@@ -20,10 +20,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: export token
-      run: export CR_PAT=secrets.PERSONAL_TOKEN
     - name: Login to registry
-      run: docker login ghcr.io -u USERNAME --password $CR_PAT
+      run: echo secrets.PERSONAL_TOKEN | docker login ghcr.io -u USERNAME --password-stdin 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Push the image into the registry
