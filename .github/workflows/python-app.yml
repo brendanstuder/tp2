@@ -25,7 +25,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Push the image into the registry
-      run: docker push ghcr.io/brendanstuder/IMAGE_NAME:latest
+      run: docker push ghcr.io/brendanstuder/tp2:latest
 
   test:
 
