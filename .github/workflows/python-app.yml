@@ -20,8 +20,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: export token
+      run: export CR_PAT=secrets.PERSONAL_TOKEN
+    - name: Login to registry
+      run: cho $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Push the image into the registry
+      run: docker push ghcr.io/brendanstuder/IMAGE_NAME:latest
 
   test:
 
