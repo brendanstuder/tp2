@@ -20,10 +20,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: test
-      run: echo secrets.PERSONAL_TOKEN
     - name: Login to registry
-      run: echo secrets.PERSONAL_TOKEN | docker login ghcr.io -u brendanstuder --password-stdin 
+      run: echo ${{ secrets.PERSONAL_TOKEN }} | docker login ghcr.io -u brendanstuder --password-stdin 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Push the image into the registry
